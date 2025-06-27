@@ -61,7 +61,6 @@ In order to run this project you need:
 
 - Code editor like Visual Studio or Sublime Text
 - Latest Node version
-- 
 
 ### Setup
 
