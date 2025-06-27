@@ -59,8 +59,9 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-- Code editor like Visual Studio or Sublime Text
-- Latest Node version
+- Code editor like [Visual Studio](https://code.visualstudio.com/download) or [Sublime Text](https://www.sublimetext.com/download)
+- [Latest Node version](https://nodejs.org/en/download)
+- [PNPM](https://pnpm.io/installation)
 
 ### Setup
 
