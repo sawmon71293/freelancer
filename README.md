@@ -33,10 +33,10 @@
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack
-
+<a name="built-with">React Native</a><br>
+<a name="built-with">React.js</a><br>
 <a name="built-with">Next.js</a><br>
 <a name="built-with">Node.js</a><br>
-<a name="built-with">React Native</a><br>
 <a name="built-with">MongoDB</a><br>
 
 <!-- Features -->
