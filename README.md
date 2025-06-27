@@ -106,7 +106,7 @@ Installations:
 
 ## 🔭 Future Features <a name="features"></a>
 
-- Add UI
+- 
 
 <!-- CONTRIBUTING -->
 
