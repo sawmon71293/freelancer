@@ -34,10 +34,10 @@
 
 ### Tech Stack
 
-<a name="built-with">Next.js</a>
-<a name="built-with">Node.js</a>
-<a name="built-with">React Native</a>
-<a name="built-with">MongoDB</a>
+<a name="built-with">Next.js</a><br>
+<a name="built-with">Node.js</a><br>
+<a name="built-with">React Native</a><br>
+<a name="built-with">MongoDB</a><br>
 
 <!-- Features -->
 
