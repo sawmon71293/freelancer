@@ -28,7 +28,7 @@
 
 # 📖  Freelancer <a name="about-project"></a>
 
-**Freelancer ** is a mono repository for freelancing platform for clients for posting jobs and freelancers to get projects and earn.
+**Freelancer ** is a mono repository for freelancing platform for clients to post jobs and freelancers to get projects and earn.
 
 ## 🛠 Built With <a name="built-with"></a>
 
