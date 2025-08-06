@@ -81,7 +81,7 @@ Installations:
 ### Usage
 
 - pnpm --filter web dev
-- pnpm --filter mobile dev
+- pnpm --filter mobile start
 - pnpm --filter server dev
 
 ### Run Tests <a name="runtests"></a>
