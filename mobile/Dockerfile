@@ -1,17 +1,16 @@
 FROM node:18
 
+# Enable corepack and activate pnpm
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
-# Then install expo-cli globally
-RUN pnpm add -g expo-cli
-
-ENV PATH="/root/.local/share/pnpm:$PATH"
-
 WORKDIR /app
-COPY pnpm-lock.yaml package.json ./
+
+COPY package.json pnpm-lock.yaml ./
+
 RUN pnpm install
+
 COPY . .
 
-EXPOSE 19000 19001 19002
+EXPOSE 8081
 
-CMD ["pnpm", "expo", "start", "--tunnel"]
+CMD ["pnpm", "start"]

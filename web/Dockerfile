@@ -13,10 +13,8 @@ RUN pnpm install
 
 COPY . .
 
-RUN pnpm build
-
 # Expose appropriate ports (adjust if needed)
 EXPOSE 3000
 
 # Start app
-CMD ["pnpm", "start"]
+CMD ["pnpm", "dev"]
