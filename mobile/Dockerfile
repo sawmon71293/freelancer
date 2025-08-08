@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:20
 
 # Enable corepack and activate pnpm
 RUN corepack enable && corepack prepare pnpm@latest --activate
