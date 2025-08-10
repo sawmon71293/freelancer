@@ -28,9 +28,6 @@ importers:
       '@react-navigation/native':
         specifier: ^7.1.10
         version: 7.1.10(react-native@0.79.3(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
-      axios:
-        specifier: ^1.11.0
-        version: 1.11.0
       expo:
         specifier: ~53.0.11
         version: 53.0.11(@babel/core@7.27.4)(@expo/metro-runtime@5.0.4(react-native@0.79.3(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0)))(react-native-webview@13.13.5(react-native@0.79.3(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react-native@0.79.3(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
@@ -158,6 +155,9 @@ importers:
       next:
         specifier: 15.3.3
         version: 15.3.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      postcss:
+        specifier: ^8.5.6
+        version: 8.5.6
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -169,7 +169,7 @@ importers:
         specifier: ^3
         version: 3.3.1
       '@tailwindcss/postcss':
-        specifier: ^4
+        specifier: ^4.1.8
         version: 4.1.8
       '@types/node':
         specifier: ^20.19.0
@@ -187,7 +187,7 @@ importers:
         specifier: 15.3.3
         version: 15.3.3(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
       tailwindcss:
-        specifier: ^4
+        specifier: ^4.1.8
         version: 4.1.8
       typescript:
         specifier: ^5.8.3
@@ -3966,6 +3966,10 @@ packages:
     resolution: {integrity: sha512-OCVPnIObs4N29kxTjzLfUryOkvZEq+pf8jTF0lg8E7uETuWHA+v7j3c/xJmiqpX450191LlmZfUKkXxkTry7nA==}
     engines: {node: ^10 || ^12 || >=14}
 
+  postcss@8.5.6:
+    resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
+    engines: {node: ^10 || ^12 || >=14}
+
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
@@ -6489,7 +6493,7 @@ snapshots:
       '@alloc/quick-lru': 5.2.0
       '@tailwindcss/node': 4.1.8
       '@tailwindcss/oxide': 4.1.8
-      postcss: 8.4.49
+      postcss: 8.5.6
       tailwindcss: 4.1.8
 
   '@tybys/wasm-util@0.9.0':
@@ -9470,6 +9474,12 @@ snapshots:
       source-map-js: 1.2.1
 
   postcss@8.4.49:
+    dependencies:
+      nanoid: 3.3.11
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+
+  postcss@8.5.6:
     dependencies:
       nanoid: 3.3.11
       picocolors: 1.1.1

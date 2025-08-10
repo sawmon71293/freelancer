@@ -18,7 +18,7 @@ export default function GoogleLoginScreen() {
       const { id_token } = response.params;
 
       // Send the ID token to your backend to authenticate the user
-      fetch("http://localhost:5000/api/auth/google", {
+      fetch(`${API_URL}/api/auth/google`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token: id_token }),
