@@ -84,7 +84,7 @@ Installations:
 - pnpm --filter web dev
 - pnpm --filter mobile start
 - pnpm --filter server dev
-- or use docker compose up to run all of the apps
+- docker compose up
 
 ### Run Tests <a name="runtests"></a>
 
