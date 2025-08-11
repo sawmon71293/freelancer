@@ -13,7 +13,6 @@ export const registerUser = async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ message: "Email already registered!" });
     }
-
     const hashed = await bcrypt.hash(password, 10);
     const user = new User({ name, email, role, password: hashed, bio, skills });
     await user.save();
@@ -24,9 +23,10 @@ export const registerUser = async (req, res) => {
   }
 };
 
-export const loginUser = async (res, req) => {
+export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log({ req });
     if (!email || !password) {
       return res.status(400).json({ message: "All fields are required!" });
     }
@@ -43,12 +43,13 @@ export const loginUser = async (res, req) => {
     const token = jwt.sign({ UserID: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1d",
     });
-    res.status(200).json({
+
+    return res.status(200).json({
       message: "Login  Successful",
       token,
     });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "server error ", error });
+    return res.status(500).json({ message: "server error ", error });
   }
 };

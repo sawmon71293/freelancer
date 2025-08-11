@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
+import { toast } from "react-toastify";
 type LoginFormData = {
   email: string;
   password: string;
@@ -16,11 +16,24 @@ export default function LoginPage() {
     {}
   );
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formIsValid = validate();
     if (!formIsValid) {
       return;
+    }
+    const res = await fetch("http://localhost:5000/api/user/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        email: formData.email,
+        password: formData.password,
+      }),
+    });
+    if (res.ok) {
+      toast("Login Successful!");
     }
   };
 
