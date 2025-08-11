@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+
 type LoginFormData = {
   email: string;
   password: string;
@@ -15,6 +17,7 @@ export default function LoginPage() {
   const [errors, setErrors] = useState<{ email?: string; password?: string }>(
     {}
   );
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,6 +37,7 @@ export default function LoginPage() {
     });
     if (res.ok) {
       toast("Login Successful!");
+      router.push("/dashboard");
     }
   };
 
