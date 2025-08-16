@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import { setCookie } from "cookies-next";
 
 type LoginFormData = {
   email: string;
@@ -32,6 +31,7 @@ export default function LoginPage() {
         headers: {
           "content-type": "application/json",
         },
+        credentials: "include", // ✅ important: send cookies cross-origin
         body: JSON.stringify({
           email: formData.email,
           password: formData.password,
@@ -42,15 +42,7 @@ export default function LoginPage() {
         toast(`${errorData.message}`);
         return;
       }
-      const data = await res.json();
-
-      setCookie("auth-token", data.token, {
-        httpOnly: true,
-        maxAge: 2 * 60,
-        path: "/",
-      });
       toast("Login Successful!");
-      router.push("/client");
     } catch (error) {
       console.log(error);
     }

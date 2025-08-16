@@ -53,9 +53,15 @@ export const loginUser = async (req, res) => {
       }
     );
 
+    res.cookie("auth-token", token, {
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000,
+      sameSite: "lax",
+      path: "/",
+    });
+
     return res.status(200).json({
       message: "Login  Successful",
-      token,
     });
   } catch (error) {
     console.log(error);

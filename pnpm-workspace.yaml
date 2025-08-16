@@ -1,5 +1,8 @@
 packages:
-  - 'web'
-  - 'mobile'
-  - 'server'
-  - 'shared'
+  - web
+  - mobile
+  - server
+  - shared
+
+onlyBuiltDependencies:
+  - '@scarf/scarf'
