@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { setCookie } from "cookies-next";
 
 type LoginFormData = {
   email: string;
@@ -25,19 +26,33 @@ export default function LoginPage() {
     if (!formIsValid) {
       return;
     }
-    const res = await fetch("http://localhost:5000/api/user/login", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        email: formData.email,
-        password: formData.password,
-      }),
-    });
-    if (res.ok) {
+    try {
+      const res = await fetch("http://localhost:5000/api/user/login", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
+      if (!res.ok) {
+        const errorData = await res.json();
+        toast(`${errorData.message}`);
+        return;
+      }
+      const data = await res.json();
+
+      setCookie("auth-token", data.token, {
+        httpOnly: true,
+        maxAge: 2 * 60,
+        path: "/",
+      });
       toast("Login Successful!");
-      router.push("/dashboard");
+      router.push("/client");
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -57,7 +72,6 @@ export default function LoginPage() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    console.log(formData);
   };
 
   return (
@@ -68,17 +82,21 @@ export default function LoginPage() {
       >
         <div className="w-full">
           <div className="mb-2">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email" className="text-sm">
+              Email
+            </label>
           </div>
           <input
             type="text"
             placeholder="Please enter email"
-            className="border border-gray-50 p-2 rounded mb-2 w-full"
+            className="border border-gray-300 focus:border-blue-500 p-2 rounded mb-2 w-full"
             name="email"
             value={formData.email}
             onChange={handleChange}
           />
-          {errors.email && <span className="text-red-500">{errors.email}</span>}
+          {errors.email && (
+            <span className="text-red-500 text-xs">{errors.email}</span>
+          )}
         </div>
 
         <div className="w-full">
@@ -90,18 +108,18 @@ export default function LoginPage() {
               name="password"
               type="password"
               placeholder="Please enter password"
-              className="border border-gray-50 p-2 rounded w-full"
+              className="border border-gray-300 focus:border-blue-500 p-2 rounded w-full"
               value={formData.password}
               onChange={handleChange}
             />
             {errors.password && (
-              <span className="text-red-500">{errors.password}</span>
+              <span className="text-red-500 text-xs">{errors.password}</span>
             )}
           </div>
           <div className="flex items-center w-full">
             <button
               type="submit"
-              className="border border-gray-50 p-2 rounded-md mt-4 w-full"
+              className="border border-gray-300 p-2 rounded-md focus:border-blue-500 mt-4 w-full"
             >
               Login
             </button>

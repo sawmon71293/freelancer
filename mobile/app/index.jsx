@@ -16,13 +16,13 @@ export default function GoogleLoginScreen() {
   React.useEffect(() => {
     if (response?.type === "success") {
       const { id_token } = response.params;
-
-      // Send the ID token to your backend to authenticate the user
-      fetch(`${API_URL}/api/auth/google`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token: id_token }),
-      });
+      console.log(id_token);
+      // // Send the ID token to your backend to authenticate the user
+      // fetch(`${API_URL}/api/auth/google`, {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({ token: id_token }),
+      // });
     }
   }, [response]);
 
