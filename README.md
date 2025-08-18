@@ -26,13 +26,14 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖  Freelancer <a name="about-project"></a>
+# 📖 Freelancer <a name="about-project"></a>
 
 **Freelancer ** is a mono repository for freelancing platform for clients to post projects and freelancers to get projects and earn.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack
+
 <a name="built-with">React Native</a><br>
 <a name="built-with">React.js</a><br>
 <a name="built-with">Next.js</a><br>
@@ -88,7 +89,7 @@ Installations:
 
 ### Run Tests <a name="runtests"></a>
 
-- 
+-
 
 <!-- AUTHORS -->
 
@@ -109,7 +110,7 @@ Installations:
 
 ## 🔭 Future Features <a name="features"></a>
 
-- 
+-
 
 <!-- CONTRIBUTING -->
 
@@ -144,5 +145,3 @@ I would like to appreciate myself for the opportunity to fail and dream big.
 This project is [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
