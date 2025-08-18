@@ -8,7 +8,6 @@ export async function middleware(req: NextRequest) {
   const currentPath = req.nextUrl.pathname;
   // const claims = decodeJwt(token);
   const secret = new TextEncoder().encode(process.env.JWT_SECRET);
-
   if (protectedPaths.some((path) => req.nextUrl.pathname.startsWith(path))) {
     if (!token) return NextResponse.redirect(new URL("/", req.url));
   }

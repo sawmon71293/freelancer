@@ -43,6 +43,8 @@ export default function LoginPage() {
         return;
       }
       toast("Login Successful!");
+      const data = await res.json();
+      router.push(`/${data.role}`);
     } catch (error) {
       console.log(error);
     }
