@@ -110,12 +110,18 @@ export default function LoginPage() {
               <span className="text-red-500 text-xs">{errors.password}</span>
             )}
           </div>
-          <div className="flex items-center w-full">
+          <div className="flex items-center w-full gap-2">
             <button
               type="submit"
               className="border border-gray-300 p-2 rounded-md focus:border-blue-500 mt-4 w-full"
             >
               Login
+            </button>
+            <button
+              type="button"
+              className="border border-gray-300 p-2 rounded-md focus:border-blue-500 mt-4 w-full"
+            >
+              Login with Google
             </button>
           </div>
         </div>

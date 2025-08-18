@@ -38,7 +38,12 @@ const swaggerSpec = swaggerJSDoc(options);
 // Serve Swagger UI
 const app = express();
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "http://localhost:8081"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
