@@ -6,7 +6,7 @@ export default function LoginForm() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Text>Login</Text>
-      <Button title="Sign in with Google" onPress={() => signIn()} />
+      <Button title="Sign in with Google" onPress={signIn} />
     </View>
   );
 }
