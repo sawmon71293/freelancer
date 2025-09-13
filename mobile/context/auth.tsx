@@ -71,7 +71,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           formData.append("platform", "web");
         }
         const tokenResponse = await fetch(
-          "http://localhost:8081/api/auth/token",
+          "exp://192.168.100.12:8081/api/auth/token",
           {
             method: "POST",
             body: formData,
@@ -79,19 +79,16 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           }
         );
 
-        if (isWeb) {
-        } else {
-          const token = await tokenResponse.json();
-          const accessToken = token.accessToken;
-          if (!accessToken) {
-            console.log("Didn't get an access token");
-            return;
-          }
-          console.log("Access token is ===> ", accessToken);
-          setAccessToken(accessToken);
-          const decoded = jose.decodeJwt(accessToken);
-          setUser(decoded as AuthUser)
+        const token = await tokenResponse.json();
+        const accessToken = token.accessToken;
+        if (!accessToken) {
+          console.log("Didn't get an access token");
+          return;
         }
+        console.log("Access token is ===> ", accessToken);
+        setAccessToken(accessToken);
+        const decoded = jose.decodeJwt(accessToken);
+        setUser(decoded as AuthUser);
       } catch (error) {
         setIsLoading(false);
       }
